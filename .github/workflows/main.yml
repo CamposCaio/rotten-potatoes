@@ -28,10 +28,11 @@ jobs:
             caiocampos/rotten-potatoes:${{ github.run_number }}
 
   CD:
+    needs: [CI]
     runs-on: ubuntu-latest
     
     steps:
-      - uses: action/checkout@v2
+      - uses: actions/checkout@v2
       - name: Kubernetes set context
         uses: Azure/k8s-set-context@v1.1
         with:
